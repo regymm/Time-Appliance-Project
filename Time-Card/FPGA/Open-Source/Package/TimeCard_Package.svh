@@ -1,14 +1,30 @@
-/**
- * File              : TimeCard_Package.vh
- * License           : GPL-3.0-or-later
- * Author            : Peter Gu <github.com/regymm>
- * Date              : 2024.09.01
- * Last Modified Date: 2024.09.01
- */
+//*****************************************************************************************
+// Project: Time Card
+//
+// Author: Ioannis Sotiropoulos, NetTimeLogic GmbH
+//
+// License: Copyright (c) 2022, NetTimeLogic GmbH, Switzerland, <contact@nettimelogic.com>
+// All rights reserved.
+//
+// THIS PROGRAM IS FREE SOFTWARE: YOU CAN REDISTRIBUTE IT AND/OR MODIFY
+// IT UNDER THE TERMS OF THE GNU LESSER GENERAL PUBLIC LICENSE AS
+// PUBLISHED BY THE FREE SOFTWARE FOUNDATION, VERSION 3.
+//
+// THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL, BUT
+// WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. SEE THE GNU
+// LESSER GENERAL LESSER PUBLIC LICENSE FOR MORE DETAILS.
+//
+// YOU SHOULD HAVE RECEIVED A COPY OF THE GNU LESSER GENERAL PUBLIC LICENSE
+// ALONG WITH THIS PROGRAM. IF NOT, SEE <http://www.gnu.org/licenses/>.
+//
+//*****************************************************************************************
 
-typedef enum logic[1:0] {Idle_St, Read_St, Write_St, Resp_St} Axi_AccessState_Type;
+package timecard_package;
 
-typedef enum logic[2:0] { Ro_E, Rw_E, Wo_E, Wc_E, Rc_E, None_E } Axi_RegType_Type;
+typedef enum bit[1:0] {Idle_St, Read_St, Write_St, Resp_St} Axi_AccessState_Type;
+
+typedef enum bit[2:0] { Ro_E, Rw_E, Wo_E, Wc_E, Rc_E, None_E } Axi_RegType_Type;
 
 parameter SecondWidth_Con = 32;
 parameter NanosecondWidth_Con = 32;
@@ -44,48 +60,91 @@ typedef struct packed {
 	logic [Axi_DataSize_Con-1:0] Reset;
 } Axi_Reg_Type;
 
-task Axi_Init_Proc (
-	input Axi_Reg_Type RegDef,
-	output [Axi_DataSize_Con-1:0]Reg
-);
+`define Axi_Init_Proc(RegDef, Reg) \
 	Reg <= RegDef.Reset & RegDef.Mask;
-endtask
 
-task Axi_Read_Proc(
-	input Axi_Reg_Type RegDef,
-	inout [Axi_DataSize_Con-1:0] Reg,
-	input [Axi_AddrSize_Con-1:0] Address,
-	output [Axi_DataSize_Con-1:0] Data,
-	output [1:0] Result
-);
-	Reg <= Reg;
-	if (RegDef.Addr == Address) begin
-		// Read and clear if Rc, not masked bits return 0
-		Data <= RegDef.Mask & Reg;
-		if (RegDef.Mask & RegDef.RegType == Rc_E)
-			Reg <= Reg & ~RegDef.Mask; // If Mask[i] is 1, the Reg[i] bit is set to 0
-		// Result (unsure what happens when no mask)
-		if (RegDef.Mask & (RegDef.RegType == Rw_E || RegDef.RegType == Wc_E || RegDef.RegType == Ro_E || RegDef.RegType == Rc_E)) Result <= Axi_RespOk_Con;
-		else Result <= Axi_RespSlvErr_Con;
+//task Axi_Init_Proc_Bad (
+	//input Axi_Reg_Type RegDef,
+	//output [Axi_DataSize_Con-1:0]Reg
+//);
+	//Reg = RegDef.Reset & RegDef.Mask;
+//endtask
+
+`define Axi_Read_Proc(RegDef, Reg, Address, Data, Result) \
+	if (RegDef.Addr == Address) begin \
+		Data <= RegDef.Mask & Reg; \
+		$display("Eq ", RegDef.Mask, Reg, Data); \
+		$display("AXI_READ_PROC2 ", RegDef, Reg, Address, Data, Result); \
+		// Read and clear if Rc, not masked bits return 0 \
+		if (RegDef.RegType == Rc_E) begin \
+			//$display("Rc_E case 1"); \
+			Reg <= Reg & ~RegDef.Mask; // If Mask[i] is 1, the Reg[i] bit is set to 0 \
+			Result <= Axi_RespOk_Con; \
+		end else if (RegDef.RegType == Rw_E || RegDef.RegType == Wc_E || RegDef.RegType == Ro_E || RegDef.RegType == Rc_E) begin \
+			Result <= Axi_RespOk_Con; \
+			//$display(RegDef.RegType, " case 2 ", Result); \
+		end \
+		else Result <= Axi_RespSlvErr_Con; \
 	end
-endtask
 
-task Axi_Write_Proc(
-	input Axi_Reg_Type RegDef,
-	inout [Axi_DataSize_Con-1:0] Reg,
-	input [Axi_AddrSize_Con-1:0] Address,
-	input [Axi_DataSize_Con-1:0] Data,
-	output [1:0] Result
-);
-	Reg <= Reg;
-	if (RegDef.Addr == Address) begin
-		// Write or clear if Wc, not masked bits unchanged
-		if (RegDef.Mask & (RegDef.RegType == Wc_E))
-			Reg <= (Reg & ~RegDef.Mask)|(Reg & RegDef.Mask & (~Data));
-		else Reg <= (Reg & ~RegDef.Mask)|(Data & RegDef.Mask);
-		// Result
-		if (RegDef.Mask & (RegDef.RegType == Rw_E || RegDef.RegType == Wo_E || RegDef.RegType == Wc_E)) Result <= Axi_RespOk_Con;
-		else Result <= Axi_RespSlvErr_Con;
+`define Axi_Write_Proc(RegDef, Reg, Address, Data, Result) \
+	if (RegDef.Addr == Address) begin \
+		// Write or clear if Wc, not masked bits unchanged \
+		if (RegDef.RegType == Wc_E) \
+			Reg <= (Reg & ~RegDef.Mask)|(Reg & RegDef.Mask & (~Data)); \
+		else if (RegDef.RegType == Rw_E || RegDef.RegType == Wo_E) \
+			Reg <= (Reg & ~RegDef.Mask)|(Data & RegDef.Mask); \
+		// Result \
+		if (RegDef.RegType == Rw_E || RegDef.RegType == Wo_E || RegDef.RegType == Wc_E) \
+			Result <= Axi_RespOk_Con; \
+		else Result <= Axi_RespSlvErr_Con; \
 	end
-endtask
 
+//task Axi_Read_Proc_Bad(
+	//input Axi_Reg_Type RegDef,
+	//inout [Axi_DataSize_Con-1:0] Reg,
+	//input [Axi_AddrSize_Con-1:0] Address,
+	//output reg [Axi_DataSize_Con-1:0] Data,
+	//output reg [1:0] Result
+//);
+	//$display("AXI_READ_PROC1 ", RegDef, Reg, Address, Data, Result);
+	////Reg <= Reg;
+	//if (RegDef.Addr == Address) begin
+		//// Read and clear if Rc, not masked bits return 0
+		//Data = RegDef.Mask & Reg;
+		//$display("Eq ", RegDef.Mask, Reg, Data);
+		//$display("AXI_READ_PROC2 ", RegDef, Reg, Address, Data, Result);
+		//if (RegDef.RegType == Rc_E) begin
+			////$display("Rc_E case 1");
+			//Reg = Reg & ~RegDef.Mask; // If Mask[i] is 1, the Reg[i] bit is set to 0
+			//Result = Axi_RespOk_Con;
+		//end else if (RegDef.RegType == Rw_E || RegDef.RegType == Wc_E || RegDef.RegType == Ro_E || RegDef.RegType == Rc_E) begin
+			//Result = Axi_RespOk_Con;
+			////$display(RegDef.RegType, " case 2 ", Result);
+		//end
+		//else Result = Axi_RespSlvErr_Con;
+	//end
+	//// (unsure what happens when no mask)
+	//$display("AXI_READ_PROC3 ", RegDef, Reg, Address, Data, Result);
+//endtask
+
+//task Axi_Write_Proc_Bad(
+	//input Axi_Reg_Type RegDef,
+	//inout [Axi_DataSize_Con-1:0] Reg,
+	//input [Axi_AddrSize_Con-1:0] Address,
+	//input [Axi_DataSize_Con-1:0] Data,
+	//output [1:0] Result
+//);
+	//Reg <= Reg;
+	//if (RegDef.Addr == Address) begin
+		//// Write or clear if Wc, not masked bits unchanged
+		//if (RegDef.Mask & (RegDef.RegType == Wc_E))
+			//Reg <= (Reg & ~RegDef.Mask)|(Reg & RegDef.Mask & (~Data));
+		//else Reg <= (Reg & ~RegDef.Mask)|(Data & RegDef.Mask);
+		//// Result
+		//if (RegDef.Mask & (RegDef.RegType == Rw_E || RegDef.RegType == Wo_E || RegDef.RegType == Wc_E)) Result <= Axi_RespOk_Con;
+		//else Result <= Axi_RespSlvErr_Con;
+	//end
+//endtask
+
+endpackage
