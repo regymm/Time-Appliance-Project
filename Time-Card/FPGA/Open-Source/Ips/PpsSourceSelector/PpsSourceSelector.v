@@ -82,7 +82,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
 
   // Check that each PPS input has a frequency of ~1 Hz for at least PpsAvailableThreshold_Gen seconds in sequence
   always @(posedge SysClk_ClkIn, posedge SysRstN_RstIn) begin
-    if((SysRstN_RstIn == 1'b0)) begin
+    if(SysRstN_RstIn == 1'b0) begin
       PpsSourceAvailable_DatReg <= {3{1'b0}};
       SmaPps_EvtReg <= 1'b0;
       SmaPps_EvtFF <= 1'b0;
@@ -103,119 +103,119 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
       MacPps_EvtFF <= MacPps_EvtReg;
       GnssPps_EvtReg <= GnssPps_EvtIn;
       GnssPps_EvtFF <= GnssPps_EvtReg;
-      if((SmaPpsPulse_CntReg == 0)) begin
+      if(SmaPpsPulse_CntReg == 0) begin
         PpsSourceAvailable_DatReg[0] <= 1'b0;
       end
-      else if((SmaPpsPulse_CntReg >= PpsAvailableThreshold_Gen)) begin
+      else if(SmaPpsPulse_CntReg >= PpsAvailableThreshold_Gen) begin
         PpsSourceAvailable_DatReg[0] <= 1'b1;
       end
-      if((MacPpsPulse_CntReg == 0)) begin
+      if(MacPpsPulse_CntReg == 0) begin
         PpsSourceAvailable_DatReg[1] <= 1'b0;
       end
-      else if((MacPpsPulse_CntReg >= PpsAvailableThreshold_Gen)) begin
+      else if(MacPpsPulse_CntReg >= PpsAvailableThreshold_Gen) begin
         PpsSourceAvailable_DatReg[1] <= 1'b1;
       end
-      if((GnssPpsPulse_CntReg == 0)) begin
+      if(GnssPpsPulse_CntReg == 0) begin
         PpsSourceAvailable_DatReg[2] <= 1'b0;
       end
-      else if((GnssPpsPulse_CntReg >= PpsAvailableThreshold_Gen)) begin
+      else if(GnssPpsPulse_CntReg >= PpsAvailableThreshold_Gen) begin
         PpsSourceAvailable_DatReg[2] <= 1'b1;
       end
       // SMA PPS
-      if(((SmaPps_EvtReg == 1'b1) && (SmaPps_EvtFF == 1'b0))) begin
+      if(SmaPps_EvtReg == 1'b1 && SmaPps_EvtFF == 1'b0) begin
         // rising
         SmaPpsPeriod_CntReg <= 0;
-        if((SmaPpsPeriod_CntReg < 900000000)) begin
+        if(SmaPpsPeriod_CntReg < 900000000) begin
           // too short -10%
-          if((SmaPpsPulse_CntReg > 0)) begin
+          if(SmaPpsPulse_CntReg > 0) begin
             SmaPpsPulse_CntReg <= SmaPpsPulse_CntReg - 1;
           end
         end
-        else if((SmaPpsPeriod_CntReg >= 1100000000)) begin
+        else if(SmaPpsPeriod_CntReg >= 1100000000) begin
           // too long + 10%
-          if((SmaPpsPulse_CntReg > 0)) begin
+          if(SmaPpsPulse_CntReg > 0) begin
             SmaPpsPulse_CntReg <= SmaPpsPulse_CntReg - 1;
           end
         end
         else begin
-          if((SmaPpsPulse_CntReg < PpsAvailableThreshold_Gen)) begin
+          if(SmaPpsPulse_CntReg < PpsAvailableThreshold_Gen) begin
             SmaPpsPulse_CntReg <= SmaPpsPulse_CntReg + 1;
           end
         end
       end
       else begin
-        if((SmaPpsPeriod_CntReg < 1100000000)) begin
+        if(SmaPpsPeriod_CntReg < 1100000000) begin
           SmaPpsPeriod_CntReg <= SmaPpsPeriod_CntReg + ClockClkPeriodNanosecond_Gen;
         end
         else begin
           SmaPpsPeriod_CntReg <= 0;
-          if((SmaPpsPulse_CntReg > 0)) begin
+          if(SmaPpsPulse_CntReg > 0) begin
             SmaPpsPulse_CntReg <= SmaPpsPulse_CntReg - 1;
           end
         end
       end
       // MAC PPS
-      if(((MacPps_EvtReg == 1'b1) && (MacPps_EvtFF == 1'b0))) begin
+      if(MacPps_EvtReg == 1'b1 && MacPps_EvtFF == 1'b0) begin
         // rising
         MacPpsPeriod_CntReg <= 0;
         if((MacPpsPeriod_CntReg < 900000000)) begin
           // too short -10%
-          if((MacPpsPulse_CntReg > 0)) begin
+          if(MacPpsPulse_CntReg > 0) begin
             MacPpsPulse_CntReg <= MacPpsPulse_CntReg - 1;
           end
         end
-        else if((MacPpsPeriod_CntReg >= 1100000000)) begin
+        else if(MacPpsPeriod_CntReg >= 1100000000) begin
           // too long + 10%
-          if((MacPpsPulse_CntReg > 0)) begin
+          if(MacPpsPulse_CntReg > 0) begin
             MacPpsPulse_CntReg <= MacPpsPulse_CntReg - 1;
           end
         end
         else begin
-          if((MacPpsPulse_CntReg < PpsAvailableThreshold_Gen)) begin
+          if(MacPpsPulse_CntReg < PpsAvailableThreshold_Gen) begin
             MacPpsPulse_CntReg <= MacPpsPulse_CntReg + 1;
           end
         end
       end
       else begin
-        if((MacPpsPeriod_CntReg < 1100000000)) begin
+        if(MacPpsPeriod_CntReg < 1100000000) begin
           MacPpsPeriod_CntReg <= MacPpsPeriod_CntReg + ClockClkPeriodNanosecond_Gen;
         end
         else begin
           MacPpsPeriod_CntReg <= 0;
-          if((MacPpsPulse_CntReg > 0)) begin
+          if(MacPpsPulse_CntReg > 0) begin
             MacPpsPulse_CntReg <= MacPpsPulse_CntReg - 1;
           end
         end
       end
       // Gnss PPS
-      if(((GnssPps_EvtReg == 1'b1) && (GnssPps_EvtFF == 1'b0))) begin
+      if(GnssPps_EvtReg == 1'b1 && GnssPps_EvtFF == 1'b0) begin
         // rising
         GnssPpsPeriod_CntReg <= 0;
-        if((GnssPpsPeriod_CntReg < 900000000)) begin
+        if(GnssPpsPeriod_CntReg < 900000000) begin
           // too short -10%
-          if((GnssPpsPulse_CntReg > 0)) begin
+          if(GnssPpsPulse_CntReg > 0) begin
             GnssPpsPulse_CntReg <= GnssPpsPulse_CntReg - 1;
           end
         end
-        else if((GnssPpsPeriod_CntReg >= 1100000000)) begin
+        else if(GnssPpsPeriod_CntReg >= 1100000000) begin
           // too long + 10%
-          if((GnssPpsPulse_CntReg > 0)) begin
+          if(GnssPpsPulse_CntReg > 0) begin
             GnssPpsPulse_CntReg <= GnssPpsPulse_CntReg - 1;
           end
         end
         else begin
-          if((GnssPpsPulse_CntReg < PpsAvailableThreshold_Gen)) begin
+          if(GnssPpsPulse_CntReg < PpsAvailableThreshold_Gen) begin
             GnssPpsPulse_CntReg <= GnssPpsPulse_CntReg + 1;
           end
         end
       end
       else begin
-        if((GnssPpsPeriod_CntReg < 1100000000)) begin
+        if(GnssPpsPeriod_CntReg < 1100000000) begin
           GnssPpsPeriod_CntReg <= GnssPpsPeriod_CntReg + ClockClkPeriodNanosecond_Gen;
         end
         else begin
           GnssPpsPeriod_CntReg <= 0;
-          if((GnssPpsPulse_CntReg > 0)) begin
+          if(GnssPpsPulse_CntReg > 0) begin
             GnssPpsPulse_CntReg <= GnssPpsPulse_CntReg - 1;
           end
         end
@@ -225,7 +225,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
 
   // Select the Slave PPS and MAC PPS sources according to configuration
   always @(posedge SysClk_ClkIn, posedge SysRstN_RstIn) begin
-    if((SysRstN_RstIn == 1'b0)) begin
+    if(SysRstN_RstIn == 1'b0) begin
       PpsSlaveSourceSelect_DatReg <= {2{1'b0}};
       MacSourceSelect_DatReg <= {2{1'b0}};
     end else begin
@@ -233,8 +233,8 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
             // Auto select
       2'b00 : begin
         // 1. SMA
-        if((PpsSourceAvailable_DatReg[0] == 1'b1)) begin
-          if((SmaPps_EvtIn == 1'b0)) begin
+        if(PpsSourceAvailable_DatReg[0] == 1'b1) begin
+          if(SmaPps_EvtIn == 1'b0) begin
             PpsSlaveSourceSelect_DatReg <= 2'b00;
             // SMA
             MacSourceSelect_DatReg <= 2'b00;
@@ -242,19 +242,19 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
           end
           // 2. MAC
         end
-        else if((PpsSourceAvailable_DatReg[1] == 1'b1)) begin
-          if((MacPps_EvtIn == 1'b0)) begin
+        else if(PpsSourceAvailable_DatReg[1] == 1'b1) begin
+          if(MacPps_EvtIn == 1'b0) begin
             PpsSlaveSourceSelect_DatReg <= 2'b01;
             // MAC
-            if((GnssPps_EvtIn == 1'b0)) begin
+            if(GnssPps_EvtIn == 1'b0) begin
               MacSourceSelect_DatReg <= 2'b10;
               // GNSS
             end
           end
           // 3. GNSS
         end
-        else if((PpsSourceAvailable_DatReg[2] == 1'b1)) begin
-          if((GnssPps_EvtIn == 1'b0)) begin
+        else if(PpsSourceAvailable_DatReg[2] == 1'b1) begin
+          if(GnssPps_EvtIn == 1'b0) begin
             PpsSlaveSourceSelect_DatReg <= 2'b10;
             // GNSS
             MacSourceSelect_DatReg <= 2'b10;
@@ -262,7 +262,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
           end
         end
         else begin
-          if((GnssPps_EvtIn == 1'b0)) begin
+          if(GnssPps_EvtIn == 1'b0) begin
             PpsSlaveSourceSelect_DatReg <= 2'b10;
             // GNSS
             MacSourceSelect_DatReg <= 2'b10;
@@ -272,7 +272,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
         // Force SMA
       end
       2'b01 : begin
-        if((SmaPps_EvtIn == 1'b0)) begin
+        if(SmaPps_EvtIn == 1'b0) begin
           PpsSlaveSourceSelect_DatReg <= 2'b00;
           // SMA
           MacSourceSelect_DatReg <= 2'b00;
@@ -281,10 +281,10 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
         // Force MAC
       end
       2'b10 : begin
-        if((MacPps_EvtIn == 1'b0)) begin
+        if(MacPps_EvtIn == 1'b0) begin
           PpsSlaveSourceSelect_DatReg <= 2'b01;
           // MAC
-          if((GnssPps_EvtIn == 1'b0)) begin
+          if(GnssPps_EvtIn == 1'b0) begin
             MacSourceSelect_DatReg <= 2'b10;
             // GNSS
           end
@@ -292,7 +292,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
         // Force GNSS
       end
       2'b11 : begin
-        if((GnssPps_EvtIn == 1'b0)) begin
+        if(GnssPps_EvtIn == 1'b0) begin
           PpsSlaveSourceSelect_DatReg <= 2'b10;
           // GNSS
           MacSourceSelect_DatReg <= 2'b10;
@@ -300,7 +300,7 @@ reg [1:0] MacSourceSelect_DatReg = 1'b0;
         end
       end
       default : begin
-        if((GnssPps_EvtIn == 1'b0)) begin
+        if(GnssPps_EvtIn == 1'b0) begin
           PpsSlaveSourceSelect_DatReg <= 2'b10;
           // GNSS
           MacSourceSelect_DatReg <= 2'b10;

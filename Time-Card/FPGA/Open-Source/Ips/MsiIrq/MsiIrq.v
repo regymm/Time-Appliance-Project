@@ -26,9 +26,14 @@
 // If there are several interrupts pending the messages are sent with the round-robin    --
 // principle. It supports up to 32 Interrupt Requests                                    --
 
-module MsiIrq(
+module MsiIrq #(
+  parameter [31:0]NumberOfInterrupts_Gen = 5,
+  parameter [31:0]LevelInterrupt_Gen = 32'h0
+)(
+// System           
 input wire SysClk_ClkIn,
 input wire SysRstN_RstIn,
+// Interrupt inputs                     
 input wire IrqIn0_DatIn,
 input wire IrqIn1_DatIn,
 input wire IrqIn2_DatIn,
@@ -61,19 +66,13 @@ input wire IrqIn28_DatIn,
 input wire IrqIn29_DatIn,
 input wire IrqIn30_DatIn,
 input wire IrqIn31_DatIn,
+// MSI Interface            
 input wire MsiIrqEnable_EnIn,
 input wire MsiGrant_ValIn,
 output wire MsiReq_ValOut,
-input wire [2:0] MsiVectorWidth_DatIn,
+input wire [2:0] MsiVectorWidth_DatIn, // unused
 output wire [4:0] MsiVectorNum_DatOut
 );
-
-parameter [31:0] NumberOfInterrupts_Gen=5;
-parameter [31:0] LevelInterrupt_Gen=36'h0000_0000;
-// System           
-// Interrupt inputs                     
-// MSI Interface            
-// unused
 parameter [2:0]
   Idle_St = 0,
   SelectIrq_St = 1,
@@ -83,12 +82,14 @@ parameter [2:0]
 reg [2:0] Msi_State_StReg;
 reg MsiReq_ValReg = 1'b0;
 reg [4:0] MsiVectorNum_DatReg = 1'b0;
-wire [31:0] IrqInMax_Dat = 1'b0;  // max number of interrupts is 32
-wire [NumberOfInterrupts_Gen - 1:0] IrqIn_Dat = 1'b0;
+wire [31:0] IrqInMax_Dat;  // max number of interrupts is 32
+wire [NumberOfInterrupts_Gen - 1:0] IrqIn_Dat;
 (* ASYNC_REG = "TRUE" *)reg [NumberOfInterrupts_Gen - 1:0] IrqIn_DatReg = 1'b0;
 reg [NumberOfInterrupts_Gen - 1:0] IrqIn_Dat_ff = 1'b0;
 reg [NumberOfInterrupts_Gen - 1:0] IrqDetected_Reg = 1'b0;
 reg [31:0] IrqNumber = 0; 
+
+  integer i;
 
   assign MsiReq_ValOut = MsiReq_ValReg;
   assign MsiVectorNum_DatOut = MsiVectorNum_DatReg;
@@ -167,8 +168,6 @@ reg [31:0] IrqNumber = 0;
         end
         SendIrq_St : begin
           MsiReq_ValReg <= 1'b1;
-          // TODO: check
-          //MsiVectorNum_DatReg <= std_logic_vector(to_unsigned(IrqNumber, MsiVectorNum_DatReg'length));
           MsiVectorNum_DatReg <= IrqNumber;
           Msi_State_StReg <= WaitGrant_St;
         end
@@ -195,7 +194,7 @@ reg [31:0] IrqNumber = 0;
         endcase
         // scan for a new interrupt
         for (i=0; i <= NumberOfInterrupts_Gen - 1; i = i + 1) begin
-          if((((IrqIn_Dat_ff[i] == 1'b0) && (IrqIn_DatReg[i] == 1'b1)) || ((IrqIn_Dat_ff[i] == 1'b1) && (LevelInterrupt_Gen[i] == 1'b1)))) begin
+          if((IrqIn_Dat_ff[i] == 1'b0 && IrqIn_DatReg[i] == 1'b1) || (IrqIn_Dat_ff[i] == 1'b1 && LevelInterrupt_Gen[i] == 1'b1)) begin
             IrqDetected_Reg[i] <= 1'b1;
           end
         end
