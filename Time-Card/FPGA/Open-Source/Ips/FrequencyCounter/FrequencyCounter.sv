@@ -104,7 +104,7 @@ reg FrequencySysClk1_EvtReg = 1'b0;
 reg FrequencySysClk2_EvtReg = 1'b0;
 reg FrequencySysClk3_EvtReg = 1'b0; 
 // Axi Signals                                  
-reg Axi_AccessState_StaReg = Axi_AccessState_Type_Rst_Con;
+reg [1:0]Axi_AccessState_StaReg = Axi_AccessState_Type_Rst_Con;
 reg AxiWriteAddrReady_RdyReg;
 reg AxiWriteDataReady_RdyReg;
 reg AxiWriteRespValid_ValReg;
@@ -113,10 +113,10 @@ reg AxiReadAddrReady_RdyReg;
 reg AxiReadDataValid_ValReg;
 reg [1:0] AxiReadDataResponse_DatReg;
 reg [31:0] AxiReadDataData_DatReg;
-wire [31:0] FreqCntControl_DatReg;
+reg [31:0] FreqCntControl_DatReg;
 reg [31:0] FreqCntFrequency_DatReg;
 reg [31:0] FreqCntPolarity_DatReg;
-wire [31:0] FreqCntVersion_DatReg; 
+reg [31:0] FreqCntVersion_DatReg; 
   assign Enable_Ena = FreqCntControl_DatReg[FreqCntControl_EnableBit_Con];
   assign MeasurePeriod_Dat = FreqCntControl_DatReg[15:8];
   assign Polarity_Dat = FreqCntPolarity_DatReg[FreqCntPolarity_PolarityBit_Con];
@@ -247,11 +247,11 @@ wire [31:0] FreqCntVersion_DatReg;
       
       case(Axi_AccessState_StaReg)
       Idle_St : begin
-        if((AxiWriteAddrValid_ValIn == 1'b1 && AxiWriteDataValid_ValIn == 1'b1)) begin
+        if(AxiWriteAddrValid_ValIn == 1'b1 && AxiWriteDataValid_ValIn == 1'b1) begin
           AxiWriteAddrReady_RdyReg <= 1'b1;
           AxiWriteDataReady_RdyReg <= 1'b1;
           Axi_AccessState_StaReg <= Write_St;
-        end else if((AxiReadAddrValid_ValIn == 1'b1)) begin
+        end else if(AxiReadAddrValid_ValIn == 1'b1) begin
           AxiReadAddrReady_RdyReg <= 1'b1;
           Axi_AccessState_StaReg <= Read_St;
         end

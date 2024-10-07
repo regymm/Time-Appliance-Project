@@ -6,6 +6,7 @@ parameter OutputPolarity_Gen="true"
 input wire SysClk_ClkIn,
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 s_axi_aresetn RST" *)
 input wire SysRstN_RstIn,
+(* X_INTERFACE_MODE = "monitor" *)
 (* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in Second" *)
 input wire [32 - 1:0] ClockTime_Second_DatIn, // do not include the svh here
 (* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in Nanosecond" *)
