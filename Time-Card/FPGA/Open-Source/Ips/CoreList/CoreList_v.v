@@ -1,27 +1,16 @@
-module PpsGenerator_v #(
-parameter [31:0] ClockPeriod_Gen=20,
-parameter CableDelay_Gen="true",
-parameter [31:0] OutputDelay_Gen=0,
-parameter OutputPolarity_Gen="true",
-parameter [31:0] HighResFreqMultiply_Gen=4,
-parameter Sim_Gen="false"
+module CoreList_v #(
+parameter CoreListBytes_Con = 0,
+parameter RomAddrWidth_Con = 0,
+parameter CoreListFile_Processed = "/dev/null",
+// System clock 50MHz. Clock period in nanoseconds
+parameter [31:0]ClockPeriod_Gen = 20
 )(
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axi_clk, ASSOCIATED_BUSIF s_axi, ASSOCIATED_RESET s_axi_aresetn" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axi_clk CLK" *)
 input wire SysClk_ClkIn,
-input wire SysClkNx_ClkIn,
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 s_axi_aresetn RST" *)
 input wire SysRstN_RstIn,
-(* X_INTERFACE_MODE = "monitor" *)
-(* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in Second" *)
-input wire [32 - 1:0] ClockTime_Second_DatIn, // do not include the svh here
-(* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in Nanosecond" *)
-input wire [32 - 1:0] ClockTime_Nanosecond_DatIn,
-(* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in TimeJump" *)
-input wire ClockTime_TimeJump_DatIn,
-(* X_INTERFACE_INFO = "NetTimeLogic:TimeCardLib:TC_Time:1.0 time_in Valid" *)
-input wire ClockTime_ValIn,
-output wire Pps_EvtOut,
+output wire CoreListReadCompleted_DatOut,
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s_axi AWVALID" *)
 input wire AxiWriteAddrValid_ValIn,
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s_axi AWREADY" *)
@@ -61,17 +50,15 @@ output wire [1:0] AxiReadDataResponse_DatOut,
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 s_axi RDATA" *)
 output wire [31:0] AxiReadDataData_DatOut
 );
-PpsGenerator#(
-.OutputPolarity_Gen(OutputPolarity_Gen)
-)PpsGenerator_inst(
+CoreList #(
+.CoreListBytes_Con(CoreListBytes_Con),
+.RomAddrWidth_Con(RomAddrWidth_Con),
+.CoreListFile_Processed(CoreListFile_Processed),
+.ClockPeriod_Gen(ClockPeriod_Gen)
+) CoreList_inst (
 .SysClk_ClkIn(SysClk_ClkIn),
-.SysClkNx_ClkIn(SysClkNx_ClkIn),
 .SysRstN_RstIn(SysRstN_RstIn),
-.ClockTime_Second_DatIn(ClockTime_Second_DatIn),
-.ClockTime_Nanosecond_DatIn(ClockTime_Nanosecond_DatIn),
-.ClockTime_TimeJump_DatIn(ClockTime_TimeJump_DatIn),
-.ClockTime_ValIn(ClockTime_ValIn),
-.Pps_EvtOut(Pps_EvtOut),
+.CoreListReadCompleted_DatOut(CoreListReadCompleted_DatOut),
 .AxiWriteAddrValid_ValIn(AxiWriteAddrValid_ValIn),
 .AxiWriteAddrReady_RdyOut(AxiWriteAddrReady_RdyOut),
 .AxiWriteAddrAddress_AdrIn(AxiWriteAddrAddress_AdrIn),
