@@ -27,8 +27,8 @@
 // principle. It supports up to 32 Interrupt Requests                                    --
 
 module MsiIrq #(
-  parameter [31:0]NumberOfInterrupts_Gen = 5,
-  parameter [31:0]LevelInterrupt_Gen = 32'h0
+  parameter [31:0]NumberOfInterrupts_Gen = 20,
+  parameter [31:0]LevelInterrupt_Gen = 32'h000E05B8
 )(
 // System           
 input wire SysClk_ClkIn,

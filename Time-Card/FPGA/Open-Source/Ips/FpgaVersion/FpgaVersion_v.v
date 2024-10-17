@@ -1,6 +1,6 @@
 module FpgaVersion_v #(
-parameter [15:0] VersionNumber_Gen=16'h0000,
-parameter [15:0] VersionNumber_Golden_Gen=16'h0000
+parameter [15:0] VersionNumber_Gen=16'h000a,
+parameter [15:0] VersionNumber_Golden_Gen=16'h000a
 )(
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axi_clk, ASSOCIATED_BUSIF s_axi, ASSOCIATED_RESET s_axi_aresetn" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 s_axi_clk CLK" *)
