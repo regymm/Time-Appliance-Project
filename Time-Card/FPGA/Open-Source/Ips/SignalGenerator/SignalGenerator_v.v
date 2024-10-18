@@ -64,7 +64,11 @@ output wire [1:0] AxiReadDataResponse_DatOut,
 output wire [31:0] AxiReadDataData_DatOut
 );
 SignalGenerator #(
-.OutputPolarity_Gen(OutputPolarity_Gen)
+.ClockPeriod_Gen(ClockPeriod_Gen),
+.CableDelay_Gen(CableDelay_Gen),
+.OutputDelay_Gen(OutputDelay_Gen),
+.OutputPolarity_Gen(OutputPolarity_Gen),
+.HighResFreqMultiply_Gen(HighResFreqMultiply_Gen)
 )SignalGenerator_inst(
 .SysClk_ClkIn(SysClk_ClkIn),
 .SysClkNx_ClkIn(SysClkNx_ClkIn),
