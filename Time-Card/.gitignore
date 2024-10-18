@@ -21,3 +21,14 @@ Project\ Outputs*/
 # Access lock file for dbLib sources
 **/*.ldb
 
+*.done
+*.done.*
+*.jou
+*.log
+.Xil/
+NA
+NONE
+*.tmp
+vivado*.str
+xsim.dir
+xv*.pb
