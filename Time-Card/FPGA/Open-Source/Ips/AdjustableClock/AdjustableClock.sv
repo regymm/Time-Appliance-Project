@@ -208,8 +208,8 @@ parameter ClockControl_TimeReadValBit_Con = 30;
 parameter ClockControl_TimeReadDValBit_Con = 31;
 parameter ClockStatus_InSyncBit_Con = 0;
 parameter ClockStatus_InHoldoverBit_Con = 1;  // max 2 ns extra per clock cycle   
-parameter CountAdjustmentWidth_Con = $ceil($clog2(2 + 1));  // 3 possible corection values: 0,1,2
-parameter ClockIncrementWidth_Con = $ceil($clog2((ClockPeriod_Gen + 2) + 1)); 
+parameter CountAdjustmentWidth_Con = $clog2(2 + 1);  // 3 possible corection values: 0,1,2
+parameter ClockIncrementWidth_Con = $clog2((ClockPeriod_Gen + 2) + 1); 
 // Enable clock
 wire Enable_Ena;
 wire [7:0] SelectInput_Dat; 
