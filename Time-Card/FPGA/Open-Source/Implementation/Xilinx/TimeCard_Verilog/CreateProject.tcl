@@ -77,7 +77,7 @@ add_files -norecurse {/home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Op
 add_files -norecurse /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Modules/BufgMux/BufgMux_IPI.v
 #remove_files  /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Modules/BufgMux/BufgMux_IPI.vhd
 #update_module_reference {TimeCard_BufgMux_IPI_0_0 TimeCard_BufgMux_IPI_1_0 TimeCard_BufgMux_IPI_2_0}
-add_files -norecurse /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Implementation/Xilinx/TimeCard/Top/TimeCardTop.v
+add_files -norecurse /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Implementation/Xilinx/TimeCard_Verilog/Top/TimeCardTop.v
 #remove_files  /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Implementation/Xilinx/TimeCard/Top/TimeCardTop.vhd
 add_files -norecurse {/home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/DummyAxiSlave/DummyAxiSlave.sv /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Modules/BufgMux/BufgMux_IPI.v /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/PpsSourceSelector/PpsSourceSelector.v /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/FpgaVersion/FpgaVersion.sv /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/DummyAxiSlave/DummyAxiSlave_v.v /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/MsiIrq/MsiIrq.v /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/FpgaVersion/FpgaVersion_v.v}
 add_files -norecurse /home/petergu/PTP/Time-Appliance-Project/Time-Card/FPGA/Open-Source/Ips/CommunicationSelector/CommunicationSelector.v
