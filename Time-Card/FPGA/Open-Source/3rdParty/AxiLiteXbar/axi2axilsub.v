@@ -79,6 +79,7 @@ module axi2axilsub #(
 		// }}}
 	) (
 		// {{{
+		(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME s_axi_clk, ASSOCIATED_BUSIF S_AXI:M_AXI, ASSOCIATED_RESET s_axi_aresetn" *)
 		input	wire	S_AXI_ACLK,
 		input	wire	S_AXI_ARESETN,
 		// AXI4 slave interface
@@ -645,7 +646,7 @@ module axi2axilsub #(
 
 		// m_awvalid
 		// {{{
-		initial	m_axi_awvalid = 0;
+//		initial	m_axi_awvalid = 0;
 		always @(posedge S_AXI_ACLK)
 		if (!S_AXI_ARESETN)
 			m_awvalid <= 0;
