@@ -226,7 +226,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports PciePerst_RstIn]
 set_property PULLUP true [get_ports PciePerst_RstIn]
 
 set_property PACKAGE_PIN F10 [get_ports PcieRefClkP_ClkIn]
-set_property LOC GTPE2_CHANNEL_X0Y5 [get_cells {Bd_Inst/TimeCard_i/axi_pcie_0/inst/comp_axi_enhanced_pcie/comp_enhanced_core_top_wrap/axi_pcie_enhanced_core_top_i/pcie_7x_v2_0_2_inst/pcie_top_with_gt_top.gt_ges.gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gtp_channel.gtpe2_channel_i}]
+#set_property LOC GTPE2_CHANNEL_X0Y5 [get_cells {Bd_Inst/TimeCard_i/axi_pcie_0/inst/comp_axi_enhanced_pcie/comp_enhanced_core_top_wrap/axi_pcie_enhanced_core_top_i/pcie_7x_v2_0_2_inst/pcie_top_with_gt_top.gt_ges.gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gtp_channel.gtpe2_channel_i}]
 set_property PACKAGE_PIN D11 [get_ports {pcie_7x_mgt_0_rxp[0]}]
 set_property PACKAGE_PIN D5 [get_ports {pcie_7x_mgt_0_txp[0]}]
 
@@ -281,6 +281,13 @@ connect_debug_port u_ila_0/probe4 [get_nets [list Bd_Inst/TimeCard_i/axi_pcie_0_
 
 
 
+connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[1]}]]
+connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[1]}]]
+
+connect_debug_port u_ila_0/probe2 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_ext_GPIO_TRI_I[0]} {Bd_Inst/TimeCard_i/axi_gpio_ext_GPIO_TRI_I[1]}]]
+
+
+
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
@@ -293,12 +300,40 @@ set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
 set_property port_width 1 [get_debug_ports u_ila_0/clk]
 connect_debug_port u_ila_0/clk [get_nets [list Bd_Inst/TimeCard_i/clk_wiz_0/inst/clk_out1]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 2 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[1]}]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[0]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[1]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[2]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[3]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[4]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[5]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[6]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[7]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[8]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[9]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[10]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[11]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[12]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[13]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[14]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[15]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[16]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[17]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[18]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[19]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[20]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[21]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[22]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[23]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[24]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[25]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[26]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[27]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[28]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[29]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[30]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
 set_property port_width 2 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[1]}]]
+connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/axil_gpio_0_gpio2_o[0]} {Bd_Inst/TimeCard_i/axil_gpio_0_gpio2_o[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 2 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {Bd_Inst/TimeCard_i/GpioMac_DatIn[0]} {Bd_Inst/TimeCard_i/GpioMac_DatIn[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 2 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {Bd_Inst/TimeCard_i/Ext_DatIn[0]} {Bd_Inst/TimeCard_i/Ext_DatIn[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 1 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list Bd_Inst/TimeCard_i/AdjustableClock_v_0_InHoldover_DatOut]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 1 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list Bd_Inst/TimeCard_i/AdjustableClock_v_0_InSync_DatOut]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list Bd_Inst/TimeCard_i/TodSlave_v_0/inst/TodSlave_inst/RxUart_DatReg]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list Bd_Inst/TimeCard_i/TC_PpsGenerator_0_Pps_EvtOut]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list Bd_Inst/TimeCard_i/UartGnss1Rx_DatIn_1]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
