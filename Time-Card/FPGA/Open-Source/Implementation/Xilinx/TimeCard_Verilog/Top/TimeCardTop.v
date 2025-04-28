@@ -283,7 +283,7 @@ wire Clk_TxScl_t;
   // i                               => Mhz10ClkDcxo2_ClkIn,
   // o                               => Mhz10ClkDcxo2_Clk
   // );      
-  TimeCard_wrapper TimeCard_NoBd_Inst(
+  TimeCard_NoBd TimeCard_NoBd_Inst(
       .Mhz200Clk_ClkIn_clk_n(Mhz200ClkN_ClkIn),
     .Mhz200Clk_ClkIn_clk_p(Mhz200ClkP_ClkIn),
     .Mhz10ClkMac_ClkIn(Mhz10Clk0_Clk),

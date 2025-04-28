@@ -230,111 +230,288 @@ set_property PACKAGE_PIN F10 [get_ports PcieRefClkP_ClkIn]
 set_property PACKAGE_PIN D11 [get_ports {pcie_7x_mgt_0_rxp[0]}]
 set_property PACKAGE_PIN D5 [get_ports {pcie_7x_mgt_0_txp[0]}]
 
-#create_debug_core u_ila_0 ila
-#set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
-#set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_0]
-#set_property C_ADV_TRIGGER true [get_debug_cores u_ila_0]
-#set_property C_DATA_DEPTH 2048 [get_debug_cores u_ila_0]
-#set_property C_EN_STRG_QUAL true [get_debug_cores u_ila_0]
-#set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
-#set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
-#set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
-#set_property port_width 1 [get_debug_ports u_ila_0/clk]
-#connect_debug_port u_ila_0/clk [get_nets [list Bd_Inst/TimeCard_i/clk_wiz_2/inst/clk_out1]]
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-#set_property port_width 32 [get_debug_ports u_ila_0/probe0]
-#connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[0]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[1]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[2]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[3]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[4]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[5]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[6]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[7]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[8]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[9]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[10]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[11]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[12]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[13]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[14]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[15]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[16]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[17]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[18]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[19]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[20]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[21]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[22]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[23]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[24]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[25]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[26]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[27]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[28]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[29]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[30]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBitCounter_CntReg[31]}]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
-#set_property port_width 32 [get_debug_ports u_ila_0/probe1]
-#connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[0]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[1]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[2]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[3]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[4]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[5]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[6]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[7]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[8]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[9]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[10]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[11]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[12]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[13]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[14]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[15]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[16]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[17]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[18]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[19]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[20]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[21]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[22]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[23]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[24]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[25]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[26]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[27]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[28]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[29]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[30]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/BitsPerMsgDataCounter_CntReg[31]}]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-#set_property port_width 32 [get_debug_ports u_ila_0/probe2]
-#connect_debug_port u_ila_0/probe2 [get_nets [list {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[0]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[1]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[2]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[3]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[4]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[5]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[6]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[7]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[8]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[9]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[10]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[11]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[12]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[13]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[14]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[15]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[16]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[17]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[18]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[19]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[20]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[21]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[22]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[23]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[24]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[25]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[26]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[27]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[28]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[29]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[30]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/ClksPerUartBit_Dat[31]}]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-#set_property port_width 2 [get_debug_ports u_ila_0/probe3]
-#connect_debug_port u_ila_0/probe3 [get_nets [list {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/RxUart_ShiftReg[0]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/RxUart_ShiftReg[1]}]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
-#set_property port_width 2 [get_debug_ports u_ila_0/probe4]
-#connect_debug_port u_ila_0/probe4 [get_nets [list {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/UartRxState_StaReg[0]} {Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/UartRxState_StaReg[1]}]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
-#set_property port_width 1 [get_debug_ports u_ila_0/probe5]
-#connect_debug_port u_ila_0/probe5 [get_nets [list Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/RxUart_DatReg]]
-#create_debug_port u_ila_0 probe
-#set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
-#set_property port_width 1 [get_debug_ports u_ila_0/probe6]
-#connect_debug_port u_ila_0/probe6 [get_nets [list Bd_Inst/TimeCard_i/TodSlave_v_0/U0/TodSlave_inst/UartError_DatReg]]
-#set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
-#set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
-#set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-#connect_debug_port dbg_hub/clk [get_nets Mhz50Clk_Clk]
-
-connect_debug_port u_ila_0/clk [get_nets [list Bd_Inst/TimeCard_i/axi_pcie_0/inst/comp_axi_enhanced_pcie/comp_enhanced_core_top_wrap/axi_pcie_enhanced_core_top_i/pcie_7x_v2_0_2_inst/pcie_top_with_gt_top.gt_ges.gt_top_i/pipe_wrapper_i/pipe_clock_int.pipe_clock_i/mmcm_i_0]]
-connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_pcie_0_MSI_Vector_Width[0]} {Bd_Inst/TimeCard_i/axi_pcie_0_MSI_Vector_Width[1]} {Bd_Inst/TimeCard_i/axi_pcie_0_MSI_Vector_Width[2]}]]
-connect_debug_port u_ila_0/probe3 [get_nets [list Bd_Inst/TimeCard_i/axi_pcie_0_INTX_MSI_Grant]]
-connect_debug_port u_ila_0/probe4 [get_nets [list Bd_Inst/TimeCard_i/axi_pcie_0_MSI_enable]]
-
-
-
-
-connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO_TRI_I[1]}]]
-connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[0]} {Bd_Inst/TimeCard_i/axi_gpio_gnss_mac_GPIO2_TRI_O[1]}]]
-
-connect_debug_port u_ila_0/probe2 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_ext_GPIO_TRI_I[0]} {Bd_Inst/TimeCard_i/axi_gpio_ext_GPIO_TRI_I[1]}]]
-
-
 
 create_debug_core u_ila_0 ila
 set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
-set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER true [get_debug_cores u_ila_0]
 set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
-set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL true [get_debug_cores u_ila_0]
 set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
 set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
 set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
 set_property port_width 1 [get_debug_ports u_ila_0/clk]
-connect_debug_port u_ila_0/clk [get_nets [list Bd_Inst/TimeCard_i/clk_wiz_0/inst/clk_out1]]
+connect_debug_port u_ila_0/clk [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/clk_wiz_0/inst/clk_out1]]
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
-set_property port_width 32 [get_debug_ports u_ila_0/probe0]
-connect_debug_port u_ila_0/probe0 [get_nets [list {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[0]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[1]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[2]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[3]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[4]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[5]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[6]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[7]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[8]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[9]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[10]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[11]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[12]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[13]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[14]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[15]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[16]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[17]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[18]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[19]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[20]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[21]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[22]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[23]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[24]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[25]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[26]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[27]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[28]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[29]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[30]} {Bd_Inst/TimeCard_i/axi_gpio_ext_gpio2_io_o[31]}]]
+set_property port_width 2 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rresp[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rresp[1]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
-set_property port_width 2 [get_debug_ports u_ila_0/probe1]
-connect_debug_port u_ila_0/probe1 [get_nets [list {Bd_Inst/TimeCard_i/axil_gpio_0_gpio2_o[0]} {Bd_Inst/TimeCard_i/axil_gpio_0_gpio2_o[1]}]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[23]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[24]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[25]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[26]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[27]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[28]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[29]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[30]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_araddr[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
-set_property port_width 2 [get_debug_ports u_ila_0/probe2]
-connect_debug_port u_ila_0/probe2 [get_nets [list {Bd_Inst/TimeCard_i/GpioMac_DatIn[0]} {Bd_Inst/TimeCard_i/GpioMac_DatIn[1]}]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dll[7]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
-set_property port_width 2 [get_debug_ports u_ila_0/probe3]
-connect_debug_port u_ila_0/probe3 [get_nets [list {Bd_Inst/TimeCard_i/Ext_DatIn[0]} {Bd_Inst/TimeCard_i/Ext_DatIn[1]}]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/dlm[7]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
-set_property port_width 1 [get_debug_ports u_ila_0/probe4]
-connect_debug_port u_ila_0/probe4 [get_nets [list Bd_Inst/TimeCard_i/AdjustableClock_v_0_InHoldover_DatOut]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/fcr[7]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
-set_property port_width 1 [get_debug_ports u_ila_0/probe5]
-connect_debug_port u_ila_0/probe5 [get_nets [list Bd_Inst/TimeCard_i/AdjustableClock_v_0_InSync_DatOut]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lcr[7]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
-set_property port_width 1 [get_debug_ports u_ila_0/probe6]
-connect_debug_port u_ila_0/probe6 [get_nets [list Bd_Inst/TimeCard_i/TodSlave_v_0/inst/TodSlave_inst/RxUart_DatReg]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/iir[7]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
-set_property port_width 1 [get_debug_ports u_ila_0/probe7]
-connect_debug_port u_ila_0/probe7 [get_nets [list Bd_Inst/TimeCard_i/TC_PpsGenerator_0_Pps_EvtOut]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[23]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[24]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[25]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[26]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[27]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[28]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[29]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[30]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awaddr[31]}]]
 create_debug_port u_ila_0 probe
 set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
-set_property port_width 1 [get_debug_ports u_ila_0/probe8]
-connect_debug_port u_ila_0/probe8 [get_nets [list Bd_Inst/TimeCard_i/UartGnss1Rx_DatIn_1]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/lsr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 32 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[23]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[24]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[25]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[26]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[27]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[28]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[29]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[30]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rdata[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 8 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rbr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+set_property port_width 32 [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[23]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[24]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[25]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[26]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[27]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[28]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[29]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[30]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spo[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+set_property port_width 4 [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/bitpos_rx[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/bitpos_rx[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/bitpos_rx[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/bitpos_rx[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+set_property port_width 8 [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/mcr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+set_property port_width 8 [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tmp_rx[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+set_property port_width 16 [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_count[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe16]
+set_property port_width 4 [get_debug_ports u_ila_0/probe16]
+connect_debug_port u_ila_0/probe16 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wstrb[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wstrb[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wstrb[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wstrb[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe17]
+set_property port_width 2 [get_debug_ports u_ila_0/probe17]
+connect_debug_port u_ila_0/probe17 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_bresp[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_bresp[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe18]
+set_property port_width 2 [get_debug_ports u_ila_0/probe18]
+connect_debug_port u_ila_0/probe18 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/state_rx[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/state_rx[1]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe19]
+set_property port_width 16 [get_debug_ports u_ila_0/probe19]
+connect_debug_port u_ila_0/probe19 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/d[23]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe20]
+set_property port_width 8 [get_debug_ports u_ila_0/probe20]
+connect_debug_port u_ila_0/probe20 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_data[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe21]
+set_property port_width 8 [get_debug_ports u_ila_0/probe21]
+connect_debug_port u_ila_0/probe21 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/msr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe22]
+set_property port_width 3 [get_debug_ports u_ila_0/probe22]
+connect_debug_port u_ila_0/probe22 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/a[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/a[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/a[2]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe23]
+set_property port_width 8 [get_debug_ports u_ila_0/probe23]
+connect_debug_port u_ila_0/probe23 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/spr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe24]
+set_property port_width 4 [get_debug_ports u_ila_0/probe24]
+connect_debug_port u_ila_0/probe24 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_filled[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_filled[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_filled[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_filled[3]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe25]
+set_property port_width 32 [get_debug_ports u_ila_0/probe25]
+connect_debug_port u_ila_0/probe25 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[15]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[16]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[17]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[18]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[19]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[20]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[21]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[22]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[23]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[24]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[25]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[26]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[27]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[28]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[29]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[30]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wdata[31]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe26]
+set_property port_width 8 [get_debug_ports u_ila_0/probe26]
+connect_debug_port u_ila_0/probe26 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/data[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe27]
+set_property port_width 8 [get_debug_ports u_ila_0/probe27]
+connect_debug_port u_ila_0/probe27 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ier[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe28]
+set_property port_width 8 [get_debug_ports u_ila_0/probe28]
+connect_debug_port u_ila_0/probe28 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_data[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe29]
+set_property port_width 16 [get_debug_ports u_ila_0/probe29]
+connect_debug_port u_ila_0/probe29 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[7]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[8]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[9]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[10]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[11]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[12]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[13]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[14]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/sample[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe30]
+set_property port_width 8 [get_debug_ports u_ila_0/probe30]
+connect_debug_port u_ila_0/probe30 [get_nets [list {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[0]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[1]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[2]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[3]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[4]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[5]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[6]} {TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/thr[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe31]
+set_property port_width 1 [get_debug_ports u_ila_0/probe31]
+connect_debug_port u_ila_0/probe31 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_iic_clock_iic2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe32]
+set_property port_width 1 [get_debug_ports u_ila_0/probe32]
+connect_debug_port u_ila_0/probe32 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_iic_iic2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe33]
+set_property port_width 1 [get_debug_ports u_ila_0/probe33]
+connect_debug_port u_ila_0/probe33 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_quad_spi_flash_ip2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe34]
+set_property port_width 1 [get_debug_ports u_ila_0/probe34]
+connect_debug_port u_ila_0/probe34 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_ext_ip2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe35]
+set_property port_width 1 [get_debug_ports u_ila_0/probe35]
+connect_debug_port u_ila_0/probe35 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss2_ip2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe36]
+set_property port_width 1 [get_debug_ports u_ila_0/probe36]
+connect_debug_port u_ila_0/probe36 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_mac_ip2intc_irpt]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe37]
+set_property port_width 1 [get_debug_ports u_ila_0/probe37]
+connect_debug_port u_ila_0/probe37 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/irq]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe38]
+set_property port_width 1 [get_debug_ports u_ila_0/probe38]
+connect_debug_port u_ila_0/probe38 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rd]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe39]
+set_property port_width 1 [get_debug_ports u_ila_0/probe39]
+connect_debug_port u_ila_0/probe39 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/ready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe40]
+set_property port_width 1 [get_debug_ports u_ila_0/probe40]
+connect_debug_port u_ila_0/probe40 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_deq]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe41]
+set_property port_width 1 [get_debug_ports u_ila_0/probe41]
+connect_debug_port u_ila_0/probe41 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_empty]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe42]
+set_property port_width 1 [get_debug_ports u_ila_0/probe42]
+connect_debug_port u_ila_0/probe42 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_enq]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe43]
+set_property port_width 1 [get_debug_ports u_ila_0/probe43]
+connect_debug_port u_ila_0/probe43 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_fifo_full]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe44]
+set_property port_width 1 [get_debug_ports u_ila_0/probe44]
+connect_debug_port u_ila_0/probe44 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/rx_r]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe45]
+set_property port_width 1 [get_debug_ports u_ila_0/probe45]
+connect_debug_port u_ila_0/probe45 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_arready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe46]
+set_property port_width 1 [get_debug_ports u_ila_0/probe46]
+connect_debug_port u_ila_0/probe46 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_arvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe47]
+set_property port_width 1 [get_debug_ports u_ila_0/probe47]
+connect_debug_port u_ila_0/probe47 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe48]
+set_property port_width 1 [get_debug_ports u_ila_0/probe48]
+connect_debug_port u_ila_0/probe48 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_awvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe49]
+set_property port_width 1 [get_debug_ports u_ila_0/probe49]
+connect_debug_port u_ila_0/probe49 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_bready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe50]
+set_property port_width 1 [get_debug_ports u_ila_0/probe50]
+connect_debug_port u_ila_0/probe50 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_bvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe51]
+set_property port_width 1 [get_debug_ports u_ila_0/probe51]
+connect_debug_port u_ila_0/probe51 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe52]
+set_property port_width 1 [get_debug_ports u_ila_0/probe52]
+connect_debug_port u_ila_0/probe52 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_rvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe53]
+set_property port_width 1 [get_debug_ports u_ila_0/probe53]
+connect_debug_port u_ila_0/probe53 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wready]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe54]
+set_property port_width 1 [get_debug_ports u_ila_0/probe54]
+connect_debug_port u_ila_0/probe54 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/axil2mm_inst/s_axi_wvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe55]
+set_property port_width 1 [get_debug_ports u_ila_0/probe55]
+connect_debug_port u_ila_0/probe55 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_empty]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe56]
+set_property port_width 1 [get_debug_ports u_ila_0/probe56]
+connect_debug_port u_ila_0/probe56 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_enq]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe57]
+set_property port_width 1 [get_debug_ports u_ila_0/probe57]
+connect_debug_port u_ila_0/probe57 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_fifo_full]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe58]
+set_property port_width 1 [get_debug_ports u_ila_0/probe58]
+connect_debug_port u_ila_0/probe58 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/tx_r]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe59]
+set_property port_width 1 [get_debug_ports u_ila_0/probe59]
+connect_debug_port u_ila_0/probe59 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/txclk_en]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe60]
+set_property port_width 1 [get_debug_ports u_ila_0/probe60]
+connect_debug_port u_ila_0/probe60 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/UartGnss1Rx_DatIn_1]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe61]
+set_property port_width 1 [get_debug_ports u_ila_0/probe61]
+connect_debug_port u_ila_0/probe61 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/axi_uart16550_gnss1/inst/uart16550_inst/we]]
+create_debug_core u_ila_1 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_1]
+set_property ALL_PROBE_SAME_MU_CNT 4 [get_debug_cores u_ila_1]
+set_property C_ADV_TRIGGER true [get_debug_cores u_ila_1]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_1]
+set_property C_EN_STRG_QUAL true [get_debug_cores u_ila_1]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_1]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_1]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_1]
+set_property port_width 1 [get_debug_ports u_ila_1/clk]
+connect_debug_port u_ila_1/clk [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/clk_wiz_2/inst/clk_out1]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe0]
+set_property port_width 1 [get_debug_ports u_ila_1/probe0]
+connect_debug_port u_ila_1/probe0 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/AdjustableClock_v_0_InHoldover_DatOut]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe1]
+set_property port_width 1 [get_debug_ports u_ila_1/probe1]
+connect_debug_port u_ila_1/probe1 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/AdjustableClock_v_0_InSync_DatOut]]
+create_debug_port u_ila_1 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_1/probe2]
+set_property port_width 1 [get_debug_ports u_ila_1/probe2]
+connect_debug_port u_ila_1/probe2 [get_nets [list TimeCard_NoBd_Inst/TimeCard_i/TodSlave_v_0/inst/TodSlave_inst/RxUart_DatReg]]
 set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
 set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-connect_debug_port dbg_hub/clk [get_nets u_ila_0_clk_out1]
+connect_debug_port dbg_hub/clk [get_nets Mhz50Clk_Clk]
